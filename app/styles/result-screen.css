@@ -1,0 +1,51 @@
+#result-screen {}
+
+.choice-results {
+  width: 100%;
+}
+
+.choice-results > img {
+  position: absolute;
+  pointer-events: none;
+}
+
+.choice-results > img.left {
+  animation: leftToRight 1s forwards;
+  left: 0;
+}
+
+.choice-results > img.right {
+  animation: rightToLeft 1s forwards;
+  right: 0;
+  transform: translateX(10%) rotateZ(45deg) scaleX(-1);
+}
+
+@media (min-width: 768px) {
+
+  .choice-results > img.left {
+    left: 20%;
+  }
+
+  .choice-results > img.right {
+    right: 20%;
+  }
+}
+
+@keyframes leftToRight {
+  0% {
+    transform: translateX(-25%) rotateZ(-45deg);
+  }
+  100% {
+    transform: translateX(0) rotateZ(0deg);
+  }
+}
+
+@keyframes rightToLeft {
+  0% {
+    transform: translateX(25%) rotateZ(45deg) scaleX(-1);
+  }
+  100% {
+    transform: translateX(0) rotateZ(0deg) scaleX(-1);
+  }
+}
+

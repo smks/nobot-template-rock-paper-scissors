@@ -1,0 +1,14 @@
+.replay {
+  margin-top: 24px;
+  text-align: center;
+}
+
+#replay-button {
+  width: 160px;
+  height: 30px;
+  background-color: white;
+  border: 2px solid black;
+  text-transform: uppercase;
+  font-weight: 700;
+  cursor: pointer;
+}

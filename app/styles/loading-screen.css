@@ -1,0 +1,13 @@
+#loading-screen {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  transition: opacity 0.5s;
+}
+
+#loading-screen.is-hidden {
+  display: block;
+  opacity: 0; 
+}
+

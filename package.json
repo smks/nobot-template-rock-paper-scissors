@@ -1,0 +1,32 @@
+{
+  "name": "rock-paper-scissors",
+  "description": "Rock Paper Scissors Template",
+  "private": true,
+  "author": "Shaun",
+  "version": "1.0.0",
+  "repository": "",
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production",
+    "lint": "eslint app/**/*.js --fix"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "auto-reload-brunch": "^2",
+    "autoprefixer": "^6.3",
+    "babel-brunch": "~6.0",
+    "babel-preset-latest": "^6",
+    "brunch": "^2",
+    "clean-css-brunch": "^2",
+    "csswring": "^5.1",
+    "eslint": "^4.13.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.5.1",
+    "postcss-brunch": "^2.1.0",
+    "postcss-cssnext": "^3.0.2",
+    "postcss-import": "^11.0.0",
+    "uglify-js-brunch": "^2"
+  }
+}

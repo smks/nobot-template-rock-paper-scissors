@@ -2,7 +2,7 @@ import loadStyles from './loaders/styles-loader';
 import { loadImages, getImageElements } from './loaders/image-loader';
 import { initScreens, getScreen, changeToScreen, updateResultScreen } from './screen';
 import { LOADING, CHOICE, RESULT } from './constants/screens';
-import { initChoices, cleanUpChoiceScreen } from './choices';
+import { initChoices, cleanUpChoiceScreen, cleanUpResultScreen } from './choices';
 import getChoice from './helpers/get-choice';
 import randomChoice from './helpers/random-choice';
 import saveScore from './actions/save-score';
@@ -23,7 +23,7 @@ const init = () => {
   game.style.fontFamily = config.theme.fontFamily;
 }
 
-const onMadeChoice = (playerChoice) => {
+const onMadeChoice = playerChoice => {
 
   cleanUpChoiceScreen();
 
@@ -40,10 +40,14 @@ const onMadeChoice = (playerChoice) => {
   }
 
   saveScore(winner);
-
-  updateResultScreen(playerChoice, cpuChoice);
-
+  updateResultScreen(playerChoice, cpuChoice, onRestart);
   changeToScreen(RESULT);  
+};
+
+const onRestart = () => {
+  cleanUpResultScreen();
+  initChoices(onMadeChoice);
+  changeToScreen(CHOICE);
 };
 
 const initGame = () => {

@@ -52,7 +52,7 @@ const changeToScreen = (screen) => {
   });
 };
 
-const updateResultScreen = (playerChoice = {}, cpuChoice = {}) => {
+const updateResultScreen = (playerChoice = {}, cpuChoice = {}, onRestart) => {
 
   createImagesForResult(playerChoice, cpuChoice);
 
@@ -100,7 +100,7 @@ const updateResultScreen = (playerChoice = {}, cpuChoice = {}) => {
   score.textContent = `${player}-${cpu}`;
   feedback.innerHTML = feedbackText;
 
-  replayButton.addEventListener('click', () => window.location.reload());
+  replayButton.addEventListener('click', onRestart);
 };
 
 export { initScreens, getScreen, changeToScreen, updateResultScreen };

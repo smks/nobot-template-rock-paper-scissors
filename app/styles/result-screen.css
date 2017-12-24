@@ -11,12 +11,12 @@
 
 .choice-results > img.left {
   animation: leftToRight 1s forwards;
-  left: 0;
+  left: 15%;
 }
 
 .choice-results > img.right {
   animation: rightToLeft 1s forwards;
-  right: 0;
+  right: 15%;
   transform: translateX(10%) rotateZ(45deg) scaleX(-1);
 }
 

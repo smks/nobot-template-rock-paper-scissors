@@ -65,6 +65,17 @@ const createImagesForResult = (playerChoice = {}, cpuChoice = {}) => {
 
 };
 
+const cleanUpResultScreen = () => {
+  const resultScreen = getScreen(RESULT);
+  const choiceResults = resultScreen.querySelector('.choice-results');
+  while (choiceResults.firstChild) {
+    const image = choiceResults.firstChild;
+    image.classList.remove('left');
+    image.classList.remove('right');
+    choiceResults.removeChild(image);
+  }
+};
+
 const getChoiceElements = () => choices;
 
-export { initChoices, getChoiceElements, cleanUpChoiceScreen, createImagesForResult };
+export { initChoices, getChoiceElements, cleanUpChoiceScreen, cleanUpResultScreen, createImagesForResult };

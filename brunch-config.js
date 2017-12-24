@@ -2,15 +2,15 @@
 const { name, version } = require('./package');
 
 const app = {};
-app[`${name}-vendor.${version}.js`] = /^(?!app)/;
-app[`${name}.${version}.js`] = /^app/;
+app[`core/${name}-vendor.${version}.js`] = /^(?!app)/;
+app[`core/${name}.${version}.js`] = /^app/;
 
 exports.files = {
   javascripts: {
     joinTo: app
   },
   
-  stylesheets: {joinTo: `${name}.${version}.css`}
+  stylesheets: {joinTo: `core/${name}.${version}.css`}
 };
 
 exports.plugins = {

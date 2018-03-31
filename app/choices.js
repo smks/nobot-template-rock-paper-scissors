@@ -1,10 +1,22 @@
-import { LOADING, CHOICE, RESULT } from './constants/screens';
+import { CHOICE, RESULT } from './constants/screens';
 import { getImageElements } from './loaders/image-loader';
 import { getScreen } from './screen';
 import getChoice from './helpers/get-choice';
 
 let choices = {};
 let onMadeChoice;
+
+const onChoiceClick = (e) => {
+  const { target } = e;
+  const matches = target.matches || target.msMatchesSelector;
+
+  if (matches.call(target, 'img')) {
+    e.stopPropagation();
+    const choiceTarget = e.target;
+    const choice = getChoice(choiceTarget.dataset.choice);
+    onMadeChoice(choice);
+  }
+};
 
 const initChoices = (choiceMadeCallback) => {
   onMadeChoice = choiceMadeCallback;
@@ -18,19 +30,6 @@ const initChoices = (choiceMadeCallback) => {
 
   choices.addEventListener('click', onChoiceClick);
 };
-
-const onChoiceClick = (e) => {
-
-  const { target } = e;
-  const matches = target.matches || target.msMatchesSelector;
-
-  if (matches.call(target, 'img')) {
-    e.stopPropagation();
-    const choiceTarget = e.target;
-    const choice = getChoice(choiceTarget.dataset.choice);
-    onMadeChoice(choice);
-  }
-}
 
 const cleanUpChoiceScreen = () => {
   const imageElements = getImageElements();
@@ -50,7 +49,7 @@ const createImagesForResult = (playerChoice = {}, cpuChoice = {}) => {
   const choiceResults = resultScreen.querySelector('.choice-results');
   const playerChoiceImage = imageElements[playerDecision];
   let cpuChoiceImage;
-  
+
   if (playerDecision === cpuDecision) {
     cpuChoiceImage = playerChoiceImage.cloneNode();
   } else {
@@ -62,7 +61,6 @@ const createImagesForResult = (playerChoice = {}, cpuChoice = {}) => {
 
   choiceResults.appendChild(playerChoiceImage);
   choiceResults.appendChild(cpuChoiceImage);
-
 };
 
 const cleanUpResultScreen = () => {
@@ -78,4 +76,10 @@ const cleanUpResultScreen = () => {
 
 const getChoiceElements = () => choices;
 
-export { initChoices, getChoiceElements, cleanUpChoiceScreen, cleanUpResultScreen, createImagesForResult };
+export {
+  initChoices,
+  getChoiceElements,
+  cleanUpChoiceScreen,
+  cleanUpResultScreen,
+  createImagesForResult,
+};

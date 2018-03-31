@@ -3,10 +3,9 @@ import { getConfig } from './loaders/config-loader';
 import { createImagesForResult } from './choices';
 import getScore from './helpers/get-score';
 
-let screenElements = {};
+const screenElements = {};
 const hideScreenClass = 'is-hidden';
 const fadeInClass = 'fade-in';
-const fadeOutClass = 'fade-out';
 
 const initScreens = () => {
   const game = document.getElementById('game');
@@ -37,23 +36,22 @@ const changeToScreen = (screen) => {
   }
   screenRef.classList.add(fadeInClass);
   screenRef.classList.remove(hideScreenClass);
-  Object.keys(screenElements).map(key => {
+  Object.keys(screenElements).map((key) => {
     if (screen !== key) {
       const { classList } = screenElements[key];
       if (classList.contains(hideScreenClass) === false) {
-        classList.add(hideScreenClass);
-      } else if (classList.contains(fadeInClass)) { 
-        classList.remove(fadeInClass);
-      } else {
-        classList.add(hideScreenClass);
-        classList.remove(fadeInClass);
+        return classList.add(hideScreenClass);
+      } else if (classList.contains(fadeInClass)) {
+        return classList.remove(fadeInClass);
       }
+      classList.add(hideScreenClass);
+      return classList.remove(fadeInClass);
     }
+    return false;
   });
 };
 
 const updateResultScreen = (playerChoice = {}, cpuChoice = {}, onRestart) => {
-
   createImagesForResult(playerChoice, cpuChoice);
 
   const results = getScreen(RESULT);
@@ -72,7 +70,7 @@ const updateResultScreen = (playerChoice = {}, cpuChoice = {}, onRestart) => {
 
   const { labels, screens } = getConfig();
   const { result } = screens;
-  
+
   const playerLabel = labels[playerDecision];
   const cpuLabel = labels[cpuDecision];
 
@@ -94,7 +92,7 @@ const updateResultScreen = (playerChoice = {}, cpuChoice = {}, onRestart) => {
       .replace('{cpu}', `${cpuLabel}`);
   }
 
-  const {player, cpu} = getScore();
+  const { player, cpu } = getScore();
 
   subtitle.textContent = subtitleText;
   score.textContent = `${player}-${cpu}`;

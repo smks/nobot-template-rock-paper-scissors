@@ -1,10 +1,22 @@
-# Brunch + Babel/ES6
+# Template - Rock Paper Scissors
 
-This is a modern JS skeleton for [Brunch](http://brunch.io).
+Used as part of the book Automating with Node JS
 
-## Installation
+## Choice Screen
 
-Clone this repo manually or use `brunch new dir -s es6`
+![](./game-1.jpg)
+
+## Result Screen - Draw
+
+![](./game-2.jpg)
+
+## Result Screen - Won
+
+![](./game-3.jpg)
+
+## Result Screen - Lost
+
+![](./game-4.jpg)
 
 ## Getting started
 
@@ -19,10 +31,3 @@ Clone this repo manually or use `brunch new dir -s es6`
     * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
     * Place static files you want to be copied from `app/assets/` to `public/`.
     * [Brunch site](http://brunch.io), [Getting started guide](https://github.com/brunch/brunch-guide#readme)
-
-## ES-next
-
-To use proposed JS features not included into ES6, do this:
-
-* `npm install --save-dev babel-preset-stage-0`
-* in `brunch-config.js`, add the preset: `presets: ['latest', 'stage-0']`

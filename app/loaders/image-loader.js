@@ -12,6 +12,7 @@ const loadImage = (imageSource, id) => new Promise((resolve, reject) => {
     imageElements[id] = img;
     resolve();
   };
+  img.onerror = reject;
 });
 
 const loadImages = () => {
@@ -19,15 +20,14 @@ const loadImages = () => {
   const { path } = theme;
 
   if (images.length === 0) {
-    console.warn('No images passed in');
-    return;
+    console.error('No images passed in');
   }
 
   const imagesToLoad = [];
 
-  Object.keys(images).map((key, index) => {
+  Object.keys(images).map((key) => {
     const img = `${path}/${images[key]}`;
-    imagesToLoad.push(loadImage(img, key));
+    return imagesToLoad.push(loadImage(img, key));
   });
 
   return Promise.all(imagesToLoad);

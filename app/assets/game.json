@@ -1,5 +1,6 @@
 {
   "id": 123,
+  "projectName": "rock-paper-scissors",
   "theme": {
     "fontFamily": "Cabin",
     "path": "http://cdn.opencanvas.co.uk/automatingwithnodejs/assets/rock-paper-scissors/fire-water-earth-cute",

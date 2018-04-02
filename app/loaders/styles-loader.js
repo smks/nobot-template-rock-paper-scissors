@@ -3,7 +3,8 @@ import { getConfig } from './config-loader';
 const head = document.head || document.getElementsByTagName('head')[0];
 
 const loadStyles = () => {
-  const { theme, customStyles } = getConfig();
+  const { theme } = getConfig();
+  const { customStyles } = theme || [];
 
   customStyles.map((url) => {
     createCssFile(url);

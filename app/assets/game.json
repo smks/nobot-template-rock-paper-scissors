@@ -2,11 +2,11 @@
   "id": 123,
   "theme": {
     "fontFamily": "Cabin",
-    "path": "http://cdn.opencanvas.co.uk/automatingwithnodejs/assets/rock-paper-scissors/fire-water-earth-cute"
+    "path": "http://cdn.opencanvas.co.uk/automatingwithnodejs/assets/rock-paper-scissors/fire-water-earth-cute",
+    "customStyles": [
+      "https://fonts.googleapis.com/css?family=Cabin"
+    ]
   },
-  "customStyles": [
-    "https://fonts.googleapis.com/css?family=Cabin"
-  ],
   "images": {
     "background": "background.png",
     "rock": "rock.png",
